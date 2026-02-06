@@ -1,85 +1,168 @@
-/* Reset cơ bản */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Segoe UI", Arial, sans-serif;
+/* =========================================
+   CSS RIÊNG CHO TRANG ABOUT (Thêm vào cuối file)
+   ========================================= */
+
+/* 1. Hero Section: Ảnh nền gradient tím xanh */
+.about-hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 60px 0 100px 0; /* Padding dưới lớn để tạo hiệu ứng đè lên */
+    text-align: center;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 }
 
-/* Nền trang */
-body {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+.about-hero h2 { font-size: 2.5rem; margin-bottom: 10px; }
+.about-hero p { font-size: 1.2rem; opacity: 0.9; }
+
+/* 2. Layout Grid (Chia cột) */
+.main-wrapper {
+    margin-top: -60px; /* Kéo nội dung lên đè lên Hero */
+    position: relative;
+    z-index: 10;
+    margin-bottom: 50px;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 350px 1fr; /* Cột trái 350px, Cột phải tự giãn */
+    gap: 30px;
+}
+
+/* 3. Sidebar (Cột trái) */
+.member-sidebar {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+    height: fit-content;
+}
+
+.sidebar-header {
+    background: #f8f9fa;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    color: #555;
+}
+
+.member-list { list-style: none; }
+
+.member-list li {
+    padding: 15px 20px;
+    border-bottom: 1px solid #f1f1f1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.member-list li:hover, .member-list li.active {
+    background-color: #f0f7ff;
+    border-left: 5px solid #007bff;
+    padding-left: 25px; /* Hiệu ứng đẩy sang phải */
+}
+
+/* Thiết kế từng dòng thành viên */
+.member-item {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: space-between;
 }
 
-/* Khung chính */
-.container {
-    width: 420px;
-    background: #ffffff;
-    padding: 25px 30px;
-    border-radius: 14px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+.avatar-circle {
+    width: 40px; height: 40px;
+    background: #e9ecef;
+    color: #495057;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: bold;
+    margin-right: 15px;
 }
 
-/* Tiêu đề */
-h1 {
+.member-text { flex: 1; }
+.member-text strong { display: block; color: #333; font-size: 1rem; }
+.member-text small { color: #888; font-size: 0.85rem; }
+.arrow { color: #ccc; font-size: 0.8rem; }
+
+/* 4. Details Box (Cột phải) */
+.member-details {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    padding: 40px;
+    min-height: 400px; /* Đảm bảo chiều cao tối thiểu */
+    position: relative;
+}
+
+/* Màn hình chờ (Placeholder) */
+.info-placeholder {
     text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-/* Danh sách thành viên */
-ul {
-    list-style: none;
-}
-
-li {
-    padding: 12px 14px;
-    margin-bottom: 12px;
-    border-radius: 10px;
-    background: #f3f4f6;
-    cursor: pointer;
-    transition: all 0.25s ease;
-}
-
-li:hover {
-    background: #667eea;
-    color: #fff;
-    transform: translateY(-3px);
-}
-
-/* Thông tin hiển thị */
-#info {
-    margin-top: 15px;
-    text-align: center;
-    font-weight: 600;
-    color: #667eea;
-    min-height: 20px;
-}
-
-/* Nút bấm */
-button {
-    margin-top: 18px;
+    color: #999;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
-    background: #667eea;
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
 }
 
-button:hover {
-    background: #5a67d8;
-    transform: translateY(-1px);
+/* Thẻ Profile khi bấm vào */
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
 }
 
-button:active {
-    transform: scale(0.98);
+.role-badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    color: white;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.github-btn {
+    background: #24292e;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+.github-btn:hover { background: #000; }
+
+.task-box {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #ffc107;
+    margin-bottom: 20px;
+}
+
+.stats-box {
+    display: flex;
+    gap: 20px;
+}
+.stat {
+    flex: 1;
+    background: #eef2f5;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+.stat strong { display: block; color: #333; font-size: 1.1rem; }
+.stat span { color: #777; font-size: 0.9rem; }
+
+/* Hiệu ứng Fade In */
+.fade-in {
+    animation: fadeIn 0.4s ease-in-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .main-wrapper { margin-top: 0; }
+    .about-hero { clip-path: none; padding-bottom: 40px; }
 }
