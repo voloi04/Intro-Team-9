@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Giới thiệu nhóm</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+        }
+
+        .container {
+            width: 500px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+        li:hover {
+            background: #f0f0f0;
+        }
+
+        #info {
+            margin-top: 15px;
+            color: green;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Giới thiệu nhóm</h1>
+
+    <ul>
+        <li onclick="showInfo('Võ Văn Lợi', 'Team Lead - Quản lý repo')">
+            Võ Văn Lợi
+        </li>
+        <li onclick="showInfo('Lê Hữu Nghĩa', 'Developer - Trang Login & About')">
+            Lê Hữu Nghĩa
+        </li>
+        <li onclick="showInfo('Thành viên khác', 'Developer')">
+            Thành viên khác
+        </li>
+    </ul>
+
+    <div id="info"></div>
+
+    <button onclick="resetInfo()">Ẩn thông tin</button>
+</div>
+
+<script>
+    function showInfo(name, role) {
+        document.getElementById("info").innerText =
+            name + " - " + role;
+    }
+
+    function resetInfo() {
+        document.getElementById("info").innerText = "";
+    }
+</script>
+
+</body>
+</html>
