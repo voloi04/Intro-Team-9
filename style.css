@@ -199,6 +199,52 @@ a { text-decoration: none; color: inherit; }
 .card h4{ font-size: 1.1rem; margin-bottom: 6px; }
 .card p{ color: var(--muted); }
 
+/* Team Section */
+.team-section{
+  padding-top: 18px;
+}
+.team-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin-top: 22px;
+}
+.team-card{
+  background: linear-gradient(135deg, rgba(110,168,254,0.20), rgba(124,58,237,0.24));
+  border-radius: var(--radius);
+  padding: 20px 20px 18px;
+  border: 1px solid rgba(255,255,255,0.20);
+  box-shadow: var(--shadow);
+  text-align: left;
+}
+.team-card.team-dev{
+  background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(110,168,254,0.18));
+}
+.team-role-badge{
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(11,18,32,0.92);
+  color: rgba(255,255,255,0.92);
+  border: 1px solid rgba(255,255,255,0.28);
+  margin-bottom: 10px;
+}
+.team-role-badge.dev{
+  background: rgba(7,11,20,0.85);
+  border-color: rgba(110,168,254,0.65);
+}
+.team-card h4{
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+.team-card p{
+  color: rgba(255,255,255,0.85);
+}
+
 /* Footer */
 footer{
   margin-top: 44px;
