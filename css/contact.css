@@ -38,8 +38,7 @@ body {
 a {
     text-decoration: none;
     color: inherit;
-}
-
+} 
 /* Navbar */
 .navbar {
     background: var(--primary-gradient);
