@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thành Viên Team 9</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Team 9 🚀</h1>
+            <ul class="nav-links">
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="about.html" class="active">Giới Thiệu</a></li>
+                <li><a href="products.html">Sản Phẩm</a></li>
+                <li><a href="contact.html">Liên Hệ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="about-hero">
+        <div class="hero-overlay">
+            <div class="container">
+                <h2>Gương Mặt Team 9</h2>
+                <p>Chúng tôi là những mảnh ghép tạo nên sự khác biệt.</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container main-wrapper">
+        <div class="about-grid">
+            
+            <div class="member-sidebar">
+                <div class="sidebar-header">
+                    <h3><i class="fas fa-users-cog"></i> Danh sách thành viên</h3>
+                </div>
+                <ul class="member-list">
+                    <li onclick="showInfo('Võ Văn Lợi', 'Team Lead', 'Quản lý dự án, Review Code, Merge nhánh develop.', 'https://github.com/voloi04', 'leader')">
+                        <div class="member-item">
+                            <div class="member-text">
+                                <strong>Võ Văn Lợi</strong>
+                                <small>Team Lead</small>
+                            </div>
+                            <i class="fas fa-chevron-right arrow"></i>
+                        </div>
+                    </li>
+                    <li onclick="showInfo('Nguyễn Hoàng Vinh', 'Developer', 'Phát triển trang chủ (Home), UI/UX Design.', 'https://github.com/NgHVinh691', 'dev')">
+                        <div class="member-item">
+                            <div class="member-text">
+                                <strong>Nguyễn Hoàng Vinh</strong>
+                                <small>Developer</small>
+                            </div>
+                            <i class="fas fa-chevron-right arrow"></i>
+                        </div>
+                    </li>
+                    <li onclick="showInfo('Lê Hữu Nghĩa', 'Developer', 'Phát triển trang Giới thiệu (About) & Chức năng Login.', 'https://github.com/lhnghia95', 'dev')">
+                        <div class="member-item">
+                            <div class="member-text">
+                                <strong>Lê Hữu Nghĩa</strong>
+                                <small>Developer</small>
+                            </div>
+                            <i class="fas fa-chevron-right arrow"></i>
+                        </div>
+                    </li>
+                    <li onclick="showInfo('Mai Anh Tuấn', 'Developer', 'Phát triển trang Sản phẩm (Products).', 'https://github.com/DP-Tuan', 'dev')">
+                        <div class="member-item">
+                            <div class="member-text">
+                                <strong>Mai Anh Tuấn</strong>
+                                <small>Developer</small>
+                            </div>
+                            <i class="fas fa-chevron-right arrow"></i>
+                        </div>
+                    </li>
+                    <li onclick="showInfo('Chu Ngọc Hoàng Kim', 'Developer', 'Phát triển trang Liên hệ (Contact) & Form.', '#', 'dev')">
+                        <div class="member-item">
+                            <div class="member-text">
+                                <strong>Chu Ngọc Hoàng Kim</strong>
+                                <small>Developer</small>
+                            </div>
+                            <i class="fas fa-chevron-right arrow"></i>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="member-details">
+                <div id="info-content" class="info-placeholder">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1256/1256650.png" alt="Select" style="width: 80px; opacity: 0.5; margin-bottom: 20px;">
+                    <h3>Chào mừng!</h3>
+                    <p>Hãy chọn một thành viên bên trái để xem chi tiết hồ sơ.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Team 9 - Mã Nguồn Mở. Built with ❤️ and Git Flow.</p>
+    </footer>
+
+    <script>
+        function showInfo(name, role, task, github, type) {
+            const roleColor = type === 'leader' ? '#e63946' : '#2a9d8f';
+            const roleIcon = type === 'leader' ? '<i class="fas fa-chess-king"></i>' : '<i class="fas fa-code"></i>';
+            
+            const html = `
+                <div class="profile-card fade-in">
+                    <div class="profile-header" style="border-bottom: 3px solid ${roleColor}">
+                        <div class="profile-title">
+                            <h2 style="color: #">${name}</h2>
+                            <span class="role-badge" style="background:${roleColor}">${roleIcon} ${role}</span>
+                        </div>
+                        <a href="${github}" target="_blank" class="github-btn"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                    <div class="profile-body">
+                        <div class="task-box">
+                            <h4><i class="fas fa-tasks"></i> Nhiệm vụ đảm nhận:</h4>
+                            <p>${task}</p>
+                        </div>
+                        <div class="stats-box">
+                            <div class="stat">
+                                <strong>Active</strong>
+                                <span>Trạng thái</span>
+                            </div>
+                            <div class="stat">
+                                <strong>Feature</strong>
+                                <span>Nhánh làm việc</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.getElementById("info-content").innerHTML = html;
+            
+            // Highlight item đang chọn
+            const items = document.querySelectorAll('.member-list li');
+            items.forEach(item => item.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
