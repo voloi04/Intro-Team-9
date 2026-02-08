@@ -1,123 +1,163 @@
-/* ===== PRODUCTS PAGE STYLES ===== */
+/* ===== UPGRADED PRODUCTS PAGE - FUTURISTIC DARK ===== */
 
+/* 1. Nâng cấp Hero Section với hiệu ứng lưới (Mesh Gradient) */
 .products-hero {
     background: 
-        linear-gradient(180deg, rgba(7, 11, 20, 0.2), rgba(7, 11, 20, 0.9)),
-        url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1600&q=80');
+        radial-gradient(circle at 20% 35%, rgba(110, 168, 254, 0.15), transparent 40%),
+        radial-gradient(circle at 80% 65%, rgba(124, 58, 237, 0.15), transparent 40%),
+        linear-gradient(180deg, rgba(7, 11, 20, 0.5) 0%, var(--bg) 100%),
+        url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1600&q=80');
     background-size: cover;
     background-position: center;
-    padding: 100px 0;
+    padding: 120px 0 80px;
     text-align: center;
     border-bottom: 1px solid var(--border);
 }
 
 .products-hero h2 {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-size: clamp(2.8rem, 6vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -1px;
     margin-bottom: 15px;
-    background: linear-gradient(90deg, var(--brand), var(--brand-2));
+    background: linear-gradient(90deg, #fff, var(--brand), var(--brand-2));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    filter: drop-shadow(0 0 15px rgba(110, 168, 254, 0.3));
 }
 
-/* Grid Layout */
+/* 2. Grid Layout */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+    margin-top: -40px; /* Đẩy grid lên đè nhẹ vào Hero cho hiện đại */
+    padding-bottom: 60px;
 }
 
-/* Card Style */
+/* 3. Card Style - Hiệu ứng Kính mờ (Glassmorphism) */
 .product-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
     overflow: hidden;
-    transition: all 0.3s ease;
-    position: relative;
-    text-align: left;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
 }
 
 .product-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-12px);
     border-color: var(--brand);
-    box-shadow: var(--shadow);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(110, 168, 254, 0.15);
 }
 
+/* Badge phát sáng */
 .product-badge {
     position: absolute;
-    top: 15px;
-    right: 15px;
-    background: var(--brand-2);
-    padding: 4px 12px;
-    border-radius: 999px;
-    font-size: 0.75rem;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(45deg, var(--brand-2), #ff4d4d);
+    color: #fff;
+    padding: 5px 14px;
+    border-radius: 10px;
+    font-size: 0.7rem;
     font-weight: 700;
-    z-index: 1;
+    text-transform: uppercase;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4);
+    z-index: 2;
 }
 
+/* Image/Icon container */
 .product-img {
-    height: 200px;
-    background: rgba(255,255,255,0.03);
+    height: 220px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.05));
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid var(--border);
+    position: relative;
 }
 
 .product-img i {
-    font-size: 4rem;
-    color: var(--brand);
-    opacity: 0.8;
+    font-size: 4.5rem;
+    background: linear-gradient(135deg, var(--brand), var(--brand-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 5px 15px rgba(110, 168, 254, 0.4));
+    transition: 0.3s;
 }
 
+.product-card:hover .product-img i {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* 4. Thông tin sản phẩm */
 .product-info {
-    padding: 24px;
+    padding: 28px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .product-info h4 {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
     margin-bottom: 12px;
     color: #fff;
+    font-weight: 700;
 }
 
 .product-info p {
     font-size: 0.95rem;
     color: var(--muted);
-    margin-bottom: 20px;
-    min-height: 70px;
+    line-height: 1.6;
+    margin-bottom: 24px;
 }
 
-/* Tech Stack Tags */
+/* Tech Stack Tags - Kiểu viên thuốc (Pills) */
 .tech-stack {
     display: flex;
+    flex-wrap: wrap;
     gap: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    margin-top: auto; /* Đẩy tech stack xuống dưới cùng của phần info */
 }
 
 .tech-stack span {
-    font-size: 0.75rem;
-    background: rgba(110, 168, 254, 0.1);
+    font-size: 0.7rem;
+    font-weight: 600;
+    background: rgba(110, 168, 254, 0.08);
     color: var(--brand);
-    padding: 4px 10px;
-    border-radius: 4px;
+    padding: 6px 12px;
+    border-radius: 8px;
     border: 1px solid rgba(110, 168, 254, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
+/* 5. Nút bấm Premium Shimmer */
 .btn-view {
     display: block;
     text-align: center;
-    padding: 10px;
-    background: var(--surface-2);
-    border: 1px solid var(--border);
+    padding: 14px;
+    background: rgba(255, 255, 255, 0.05);
     color: #fff;
-    border-radius: 8px;
-    transition: 0.2s;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .btn-view:hover {
-    background: var(--brand);
+    background: linear-gradient(90deg, var(--brand), var(--brand-2));
     color: #0b1220;
-    font-weight: 600;
+    border-color: transparent;
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(110, 168, 254, 0.3);
 }
